@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lista de Personas</title></head>
+<body>
+  <h1>Personas</h1>
+  <form action="/agregar" method="post">
+    Nombre: <input type="text" name="nombre" required>
+    Edad: <input type="number" name="edad" required>
+    <button type="submit">Agregar</button>
+  </form>
+  <ul>
+    {% for persona in personas %}
+      <li>
+        <a href="/persona/{{ persona[0] }}">{{ persona[1] }} ({{ persona[2] }})</a>
+        - <a href="/editar/{{ persona[0] }}">Editar</a>
+        - <a href="/eliminar/{{ persona[0] }}">Eliminar</a>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
